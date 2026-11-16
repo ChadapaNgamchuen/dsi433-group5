@@ -200,7 +200,7 @@ chart_df = pd.DataFrame({
 chart_df["THB_mn"] = chart_df["Weight"] * TOTAL_ASSETS / 1e6
 bars = (alt.Chart(chart_df).mark_bar(cornerRadiusEnd=4)
         .encode(
-            y=alt.Y("Asset:N", sort=[LABELS[a] for a in ASSETS], title=None),
+            y=alt.Y("Asset:N", sort=[LABELS[a] for a in ASSETS], title=None, axis=alt.Axis(labelLimit=250)),
             yOffset=alt.YOffset("Portfolio:N", sort=["Current", model]),
             x=alt.X("Weight:Q", axis=alt.Axis(format="%", grid=True), title="สัดส่วน (% ของสินทรัพย์)"),
             color=alt.Color("Portfolio:N", sort=["Current", model],
